@@ -76,6 +76,23 @@ def mainLoop(nextCells):
         print('\n\n')
         time.sleep(1) # Add a 1-second pause to reduce flickering.
 
+def userFilling():
+    xc = 20
+    yc = 10
+    nextCells = []
+    for x in range(WIDTH):
+        column = [] # Create a new column
+        for y in range(HEIGHT):        
+            if x == xc and y == yc:
+                column.append("֍") # Add a living cell
+                # print('X',end='')
+            else:
+                column.append(" ") # Add a dead cell
+                # print('.',end='')
+        nextCells.append(column)
+        # print()
+    return nextCells
+
 
 setConditions = ''
 while setConditions != 'R' or setConditions != 'U':
@@ -85,6 +102,6 @@ while setConditions != 'R' or setConditions != 'U':
         cells = randFilling()
         mainLoop(cells) 
     elif setConditions == 'U':
-        print('Not ready yet!')
-        break
+        cells = userFilling()
+        mainLoop(cells)
     
