@@ -19,12 +19,15 @@ while True:
     # print("\n\n\n\n\n")
     os.system('cls' if os.name == 'nt' else 'clear')
     currentCells = copy.deepcopy(nextCells)
-
+    for xs in range(WIDTH+2):
+        print('-', end='')
+    print()
     # Print currentCells on the screen
     for y in range(HEIGHT):
+        print('|', end='')
         for x in range(WIDTH):
             print(currentCells[x][y], end="") # Printing # or a space
-        print() # Printing a new line at the end of the row
+        print('|') # Printing a new line at the end of the row
 
     # Calculate the next step's cells, based on the current step's cells:
     for x in range(WIDTH):
@@ -63,5 +66,8 @@ while True:
             else:
                 # Everything else dies or stays dead:
                 nextCells[x][y] = ' '
+    for xs in range(WIDTH+2):
+        print('-', end='')
+    print('\n\n')
     time.sleep(1) # Add a 1-second pause to reduce flickering.
  
