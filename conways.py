@@ -76,14 +76,23 @@ def mainLoop(nextCells):
         print('\n\n')
         time.sleep(1) # Add a 1-second pause to reduce flickering.
 
-def userFilling():
-    xc = 20
-    yc = 10
+def userDrawing():
+    pattern = []
+    pattern.append((20,10))
+    pattern.append((21,11))
+    pattern.append((21,12))
+    pattern.append((20,12))
+    pattern.append((19,12))
+
+    return pattern
+
+def userFilling():    
+    figure = userDrawing()
     nextCells = []
     for x in range(WIDTH):
         column = [] # Create a new column
         for y in range(HEIGHT):        
-            if x == xc and y == yc:
+            if (x,y) in figure:
                 column.append("֍") # Add a living cell
                 # print('X',end='')
             else:
