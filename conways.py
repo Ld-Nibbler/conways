@@ -1,5 +1,5 @@
 # Conway's game of life
-import random, time, copy, os
+import random, time, copy, os, keyboard
 WIDTH = 60
 HEIGHT = 20
 
@@ -76,6 +76,7 @@ def mainLoop(nextCells):
         print('\n\n')
         time.sleep(1) # Add a 1-second pause to reduce flickering.
 
+
 def userDrawing():
     pattern = []
     pattern.append((20,10))
@@ -84,10 +85,15 @@ def userDrawing():
     pattern.append((20,12))
     pattern.append((19,12))
 
-    return pattern
+    keyboard.hook(print_pressed_keys)
+    keyboard.wait()
+    
+    
+    #return pattern
 
 def userFilling():    
-    figure = userDrawing()
+    # figure = userDrawing()
+    userDrawing()
     nextCells = []
     for x in range(WIDTH):
         column = [] # Create a new column
