@@ -76,7 +76,7 @@ def mainLoop(nextCells):
             for xs in range(WIDTH+2):
                 print('-', end='')
             print('\n\n')
-            time.sleep(1) # Add a 1-second pause to reduce flickering.
+            time.sleep(0.2) # Add a 0.2-second pause to reduce flickering.
     except KeyboardInterrupt:
         print('\n Good bye!')
         sys.exit()
