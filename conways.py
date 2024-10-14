@@ -1,5 +1,5 @@
 # Conway's game of life
-import random, time, copy, os, keyboard
+import random, time, copy, os
 WIDTH = 60
 HEIGHT = 20
 
@@ -79,21 +79,23 @@ def mainLoop(nextCells):
 
 def userDrawing():
     pattern = []
-    pattern.append((20,10))
-    pattern.append((21,11))
-    pattern.append((21,12))
-    pattern.append((20,12))
-    pattern.append((19,12))
-
-    keyboard.hook(print_pressed_keys)
-    keyboard.wait()
+    pattern.append((4,1))
+    pattern.append((5,2))
+    pattern.append((5,3))
+    pattern.append((4,3))
+    pattern.append((3,3))
+    pattern.append((57,1))
+    pattern.append((56,2))
+    pattern.append((56,3))
+    pattern.append((57,3))
+    pattern.append((58,3))
     
     
-    #return pattern
+    return pattern
 
 def userFilling():    
-    # figure = userDrawing()
-    userDrawing()
+    figure = userDrawing()
+    # userDrawing()
     nextCells = []
     for x in range(WIDTH):
         column = [] # Create a new column
