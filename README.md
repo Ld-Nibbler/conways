@@ -16,9 +16,11 @@ Controls in "User mode":
 
 Launching:
 - Linux:
+  
     python3 conways.py
   
 - Windows:
+  
     python conways.py
 
   * It could be necessary to install curses lib for windows by the next way:
