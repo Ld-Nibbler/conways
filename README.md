@@ -1,4 +1,5 @@
 Classic Conway's life game.
+
 You can start from: R - random or U - manually created figure
 
 Controls in "User mode":
@@ -11,10 +12,14 @@ Controls in "User mode":
   - "Esc" - Finishing editing and starting the game
   
   
-  
+You can use as start kit this lexicon of terms relating to John Horton Conway's Game of Life:  
 
+https://conwaylife.com/ref/lexicon/lex.htm 
 
-Launching:
+(Local Russian translated html copy in lex_ru.zip)
+
+Running:
+
 - Linux:
   
     python3 conways.py
