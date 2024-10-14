@@ -31,7 +31,11 @@ def field_draw(cx, cy):
         print('-', end='')
     print('\n\n')
 os.system('cls' if os.name == 'nt' else 'clear')
-
+print('Cursor moving:')
+print('a - left, w - up, d - right, x - down')
+print('s - select/delete point')
+print('Space - to start')
+print('Esc - to finish drawing and start the game')
 key = -1
 crx = 2
 cry = 2
@@ -41,23 +45,26 @@ while key != 27:
     crx = crx % WIDTH 
     cry = cry % HEIGHT  
     key = curses.wrapper(read_key)    
-    if key == 132:
+    if key == 32:
+        field_draw(crx,cry)
+    elif key == 132 or key == 97:
         crx = (crx - 1) % WIDTH
         field_draw(crx,cry)
-    elif key == 134:
+    elif key == 134 or key == 119:
         cry = (cry - 1) % HEIGHT
         field_draw(crx,cry)
-    elif key == 178:
+    elif key == 178 or key == 100:
         crx = (crx + 1) % WIDTH
         field_draw(crx,cry)
-    elif key == 135:
+    elif key == 135 or key == 120:
         cry = (cry + 1) % HEIGHT
         field_draw(crx,cry)  
-    elif key == 139:
+    elif key == 139 or key == 115:
         if ((crx, cry)) in points:
             points.remove((crx,cry))
         else:
             points.append((crx,cry))
         field_draw(crx,cry) 
-    time.sleep(0.5) # Add a 0.5-second pause to reduce flickering.
+    else:
+        time.sleep(0.5) # Add a 0.5-second pause to reduce flickering.
     
