@@ -1,8 +1,10 @@
-Classic Conway's life game.
+# Classic Conway's life game.
+
+## Two modes:
 
 You can start from: R - random or U - manually created figure
 
-Controls in "User mode":
+## Controls in "User mode":
 
   - "a"- left
   - "d"- right
@@ -12,23 +14,23 @@ Controls in "User mode":
   - "Esc" - Finishing editing and starting the game
   
   
-You can use as start kit this lexicon of terms relating to John Horton Conway's Game of Life:  
+## You can use as start kit this lexicon of terms relating to John Horton Conway's Game of Life:  
 
 https://conwaylife.com/ref/lexicon/lex.htm 
 
 (Local Russian translated html copy in lex_ru.zip)
 
-Running:
+## Running:
 
-- Linux:
+### Linux:
   
-    python3 conways.py
+    `python3 conways.py`
   
-- Windows:
+### Windows:
   
-    python conways.py
+    `python conways.py`
 
   * It could be necessary to install curses lib for windows by the next way:
     
-    pip install windows-curses
+    `pip install windows-curses`
   
