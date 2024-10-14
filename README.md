@@ -2,12 +2,16 @@ Classic Conway's life game.
 You can start from: R - random or U - manually created figure
 
 Controls in "User mode":
-  "a"- left
-  "d"- right
-  "w"- up
-  "x"- down
-  "s" - set or delete the point of figure
-  "Esc" - Finishing editing and starting the game
+
+  - "a"- left
+  - "d"- right
+  - "w"- up
+  - "x"- down
+  - "s" - set or delete the point of figure
+  - "Esc" - Finishing editing and starting the game
+  
+  
+  
 
 
 Launching:
