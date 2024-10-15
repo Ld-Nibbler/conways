@@ -21,9 +21,14 @@ def randFilling():
 
 def mainLoop(nextCells): 
     try:       
+        steps = 0
+        twoStepsAgo = ()
+        maxPopulation = 0
+        isStatic = False 
         # Mine program loop
         while True:
             # print("\n\n\n\n\n")
+            fullness = 0            
             os.system('cls' if os.name == 'nt' else 'clear')
             currentCells = copy.deepcopy(nextCells)
             for xs in range(WIDTH+2):
@@ -63,10 +68,12 @@ def mainLoop(nextCells):
                         numNeighbors += 1 # Bottom neighbor is alive.
                     if currentCells[rightCoord][belowCoord] == '֍':
                         numNeighbors += 1 # Bottom-right neighbor is alive.
+                    if currentCells[x][y] == '֍':
+                        fullness += 1
                     # Set cell based on Conway's Game of Life rules:
                     if currentCells[x][y] == '֍' and (numNeighbors == 2 or numNeighbors == 3):
                         # Living cells with 2 or 3 neighbors stay alive:
-                        nextCells[x][y] = '֍'
+                        nextCells[x][y] = '֍'                        
                     elif currentCells[x][y] == ' ' and numNeighbors == 3:
                         # Dead cells with 3 neighbors become alive:
                         nextCells[x][y] = '֍'
@@ -76,6 +83,28 @@ def mainLoop(nextCells):
             for xs in range(WIDTH+2):
                 print('-', end='')
             print('\n\n')
+            if fullness > 0:               
+                if tuple(currentCells) == tuple(nextCells):
+                    print('Static detected!')
+                    if isStatic == False:
+                        steps += 1
+                        isStatic = True
+                elif tuple(nextCells) != tuple(currentCells):
+                    if twoStepsAgo == tuple(nextCells):
+                        print('Oscillator detected!')
+                        if isStatic == False:
+                            steps += 1
+                            isStatic = True
+                    else: 
+                        steps += 1
+                twoStepsAgo = tuple(currentCells)     
+            else:
+                print('It is vacuum!')    
+            print('Steps: '+ str(steps))
+            print('Population: '+ str(fullness))
+            if fullness > maxPopulation:
+                maxPopulation = fullness
+            print('Max Population: '+ str(maxPopulation))
             time.sleep(0.2) # Add a 0.2-second pause to reduce flickering.
     except KeyboardInterrupt:
         print('\n Good bye!')
