@@ -211,14 +211,16 @@ def userFilling():
     return nextCells
 
 
-setConditions = ''
-while setConditions != 'R' or setConditions != 'U':
+
+while True:
     print('How do you wish to set start conditions? (R - randomly, U - user settings):',end='')
-    setConditions = input()
+    setConditions = input().upper()
     if setConditions == 'R':
         cells = randFilling()
-        mainLoop(cells) 
+        break
     elif setConditions == 'U':
         cells = userFilling()
-        mainLoop(cells)
+        break
+
+mainLoop(cells)
     
